@@ -192,7 +192,7 @@ for(let v of arr){
 
  //#######################################################################
  //********************************Custom iterable object****************** */
- 
+ /*
  let obj={
      start : 1,
      end: 5,
@@ -243,4 +243,130 @@ console.log(it.next())  //{value: undefined, done: false}
 
 //#########################################################################//#endregion
 
-//************************************************************************* */
+//*******************set method*********************************************** */
+/*
+let set = new Set([1,2,3])
+set.add(5)
+set.add(6)
+
+console.log(set)
+
+//console.log(set.clear())
+
+//console.log(set.delete(5))
+
+//console.log(set.has(1))
+
+//console.log(set.keys())
+
+
+let keyIterate = set.keys()
+console.log(keyIterate.next())
+
+//########################################################//#endregion
+
+//*******************map method*********************************************** */
+//we can give anything as key in map method to form an object
+/*
+
+let map = new Map(
+[
+    ['a',10],
+    ['b','20'],
+    ['c',30]
+]
+)
+
+map.set('d',40)
+
+map.set({name: 'kausar'},45)
+
+//map.delete('c')
+
+//console.log(map.size)  //4
+
+//console.log(map.get('b'))  //20
+
+//console.log(map.values(20))
+
+//console.log(map.keys())  //MapIterator {"a", "b", "c", "d"}
+
+//console.log(map.entries())  //MapIterator {"a" => 10, "b" => "20", "c" => 30, "d" => 40}
+/*
+for (let [k,v] of map){
+     console.log(k,v)
+} 
+
+   /*output      
+             a 10
+             b 20
+             c 30
+             d 40
+*/
+/*
+map.forEach((v,k)=>{
+    console.log(k,v)
+})
+
+ /*output      
+             a 10
+             b 20
+             c 30
+             d 40
+*/
+
+
+//###################################################################################//#endregion
+
+//*******************************************weak set******************** */
+
+//in set if we pass an object as reference then you can not make its entries null.for doing this we need to use weak set
+
+// let a= {a:10}, b = {b:20}
+
+// let set = new Set([a,b])
+// a=null
+// console.log(set) //can not remove value
+
+
+// let weakSet = new WeakSet([a,b]) //need to provide object as perameter
+// a=null
+// console.log(weakSet)
+
+//#########################################################################//#endregion
+
+//*******************************************weak map******************** */
+ 
+// let a= {a:10}, b = {b:20}
+// let weakMap = new WeakMap([[a,45],[b,75]])
+// a=null
+
+// console.log(weakMap.get(a))  //45
+
+// console.log(weakMap.has(a))   //false   //successfully removed
+
+
+
+//#########################################################################//#endregion
+
+//*******************************************Class in es6******************** */
+
+class Rectangle{
+    constructor(width,height){
+        this.width=width
+        this.height=height
+
+        this.another = function(){    //declare into the class
+
+        }
+    }
+
+    name='kausar'
+
+    draw(){                       //declare in prototype
+        console.log('drawing..')
+    }
+}
+
+let rec1= new Rectangle(45,50)
+console.log(rec1) 
